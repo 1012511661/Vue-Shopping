@@ -1,33 +1,43 @@
 <template>
-  <div id="foot">
-    <van-tabs v-model="active" swipeable @click="page">
-      <van-tab v-for="(item,index) in navList" :title="item" :key="index" >
-      </van-tab>
-    </van-tabs>
+  <div id="foot" v-if="isFoot">
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="home" @click="page(0)">首页</van-tabbar-item>
+      <van-tabbar-item icon="exchange" dot @click="page(1)">分类</van-tabbar-item>
+      <van-tabbar-item icon="cart" :info="allCount" @click="page(2)">购物车</van-tabbar-item>
+      <van-tabbar-item icon="contact" @click="page(3)">我的</van-tabbar-item>
+    </van-tabbar>
   </div>
+  
 </template>
 
 <script type='text/ecmascript-6'>
-import { Tab, Tabs } from "vant";
+import { mapState, mapGetters } from "vuex";
+import { Row, Col, Icon, Tabbar, TabbarItem } from "vant";
 export default {
   components: {
-    [Tab.name]: Tab,
-    [Tabs.name]: Tabs
+    [Row.name]: Row,
+    [Col.name]: Col,
+    [Icon.name]: Icon,
+    [Tabbar.name]: Tabbar,
+    [TabbarItem.name]: TabbarItem
   },
   props: {},
   data() {
     return {
       active: 0,
-      navList: ["首页", "分类", "购物车", "我的"]
+      navList: ["首页", "分类", "购物车", "我的"],
+      num:0
     };
   },
-  watch: {},
-  computed: {},
+  computed: {
+    ...mapState(["isFoot","allCount"])
+  },
   methods: {
-    page(index, title) {
+    // page(index, title) {
+    page(index) {
       switch (index) {
         case 0:
-          this.$router.push({ path: "/index" });
+          this.$router.push({ path: "/home" });
           break;
         case 1:
           this.$router.push({ path: "/category" });
@@ -40,9 +50,7 @@ export default {
           break;
       }
     }
-  },
-  created() {},
-  mounted() {}
+  }
 };
 </script>
 
@@ -51,9 +59,10 @@ export default {
 #foot {
   width: 100%;
   position: fixed;
-  bottom: 0;
+
+  z-index: 100;
   .van-tabs__content {
-    display: none;
+    display: none !important;
   }
 }
 </style>

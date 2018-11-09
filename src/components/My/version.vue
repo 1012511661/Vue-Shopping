@@ -1,10 +1,11 @@
 <template>
-<div>我的</div>
+    <div id="version">
+        系统版本
+    </div>
 </template>
 
 <script type='text/ecmascript-6'>
 export default {
-  name:"my",
   components:{},
   props:{},
   data(){

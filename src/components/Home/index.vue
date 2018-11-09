@@ -6,19 +6,18 @@
         <Hot />
         <!-- 特价商品 -->
         <Price />
-        
         <!-- 限时抢购 -->
         <TimeS />
     </div>
 </template>
 
 <script type='text/ecmascript-6'>
-import Banner from "@/components/Index/banner";
-import Hot from "@/components/Index/hot";
-import Price from "@/components/Index/price";
-import TimeS from "@/components/Index/times";
+import Banner from "@/components/Home/banner";
+import Hot from "@/components/Home/hot";
+import Price from "@/components/Home/price";
+import TimeS from "@/components/Home/times";
 export default {
-  name: "index",
+  name: "home",
   components: {
     Banner,
     Hot,

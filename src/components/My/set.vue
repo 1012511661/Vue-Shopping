@@ -1,12 +1,11 @@
 <template>
 <div>
-    car
+    个人设置
 </div>
 </template>
 
 <script type='text/ecmascript-6'>
 export default {
-    name:"car",
   components:{},
   props:{},
   data(){

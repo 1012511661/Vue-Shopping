@@ -1,9 +1,14 @@
 <template>
     <div id="banner">
           <!-- banner -->
-        <van-swipe :autoplay="3000"  @click="onChange"  class="banner-swipe">
+        <!-- <van-swipe :autoplay="3000"  @click="onChange"  class="banner-swipe">
           <van-swipe-item v-for="(image, index) in images" :key="index">
             <img :src="image" alt="">
+          </van-swipe-item>
+        </van-swipe> -->
+        <van-swipe :autoplay="3000"   @click="onChange"  class="banner-swipe">
+          <van-swipe-item v-for="(image, index) in images" :key="index">
+            <img v-lazy="image" />
           </van-swipe-item>
         </van-swipe>
          <!-- icon -->

@@ -1,4 +1,5 @@
 const path = require("path");
+
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -13,14 +14,17 @@ module.exports = {
       }
     };
   },
+  baseUrl: "./",
+  outputDir: "dist",
   devServer: {
     port: 3333, // 端口号
     host: "localhost",
     https: false, // https:{type:Boolean}
+    //baseUrl: process.env.NODE_ENV === "production" ? "/my-project/" : "./",
     open: false //配置自动启动浏览器
     // proxy: {
     //   "/proxy": {
-    //     target: "http://AAAAAA", //访问的地址
+    //     target: "http://AAAAAA", //访问的地址y
     //     changeOrigin: true, //允许跨域
     //     ws: true,
     //     pathRewrite: {

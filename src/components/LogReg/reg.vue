@@ -101,7 +101,7 @@ export default {
       if (num == 0) {
         this.$store.commit("IS_REG", true); //log
       } else {
-        this.$router.push({ path: "/index" });
+        this.$router.push({ path: "/home" });
         this.$store.commit("IS_INDEX", false); //index
       }
     }

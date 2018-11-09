@@ -1,45 +1,26 @@
 <template>
   <div id="app">
     <!-- 登录/注册 -->
-    <div v-show="isIndex">
-      <Login v-if="isRge" />
-      <Reg v-else/>
-    </div>
-    <!--内容-->
-    <div v-show="!isIndex">
-      <headT />
-      <div class="content">
-         <keep-alive>
-        <transition name="anim" mode="out-in"> <!-- transition 动画-->
-        <router-view></router-view>
-        </transition>
-      </keep-alive>
-      </div>
-      <foot />
-    </div>
-   
+    <logReg  v-show="isIndex"></logReg>
+    <!-- 首页 -->
+    <Home v-show="!isIndex"></Home>
   </div>
 </template>
 
 <script type='text/ecmascript-6'>
-//head
-import headT from "@/components/HeadFoot/head";
-//foot
-import Foot from "@/components/HeadFoot/foot";
-//login
-import Login from "@/components/LogReg/log";
-//reg
-import Reg from "@/components/LogReg/reg";
+//Home
+import Home from "@/views/Home";
+// log/reg
+import logReg from "@/views/logReg";
+
 import { mapState } from "vuex";
 export default {
   components: {
-    headT,
-    Foot,
-    Login,
-    Reg
+    Home,
+    logReg
   },
   computed: {
-    ...mapState(["isRge", "isIndex"])
+    ...mapState(["isIndex"])
   }
 };
 </script>
@@ -53,8 +34,8 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.content{
-   padding-top: 6.5vh;
+.content {
+  padding-top: 7vh;
 }
 //动画
 .anim-enter {

@@ -1,8 +1,8 @@
 <template>
   <div id="times">
-    <!-- banner -->
-    <van-row class="banner">
-      <van-col span="24"> <router-link :to="{name:'car'}"><img src="http://dummyimage.com/400x100/b97cc9/FFF.png&text=s2-banner" alt=""></router-link></van-col>    
+    <!-- banner 2 -->
+    <van-row class="banner  banner_2">
+      <van-col span="24"> <router-link :to="{name:'car'}" class="banner_a"><img src="http://dummyimage.com/400x100/b97cc9/FFF.png&text=s2-banner" alt=""></router-link></van-col>    
     </van-row>
     <!-- 商品 -->
     <van-row>
@@ -19,6 +19,10 @@
            </router-link>
          </div>
        </van-col>
+    </van-row>
+      <!-- banner 3 -->
+    <van-row class="banner banner_3">
+      <van-col span="24"> <router-link :to="{name:'car'}" class="banner_a banner_3_a"><img src="https://dummyimage.com/400x100/00FFFF/FFF.png&text=s3-banner" alt=""></router-link></van-col>    
     </van-row>
   </div> 
 </template>
@@ -112,8 +116,10 @@ export default {
 #times {
   padding-top: 1vh;
   background: #fff;
-  height: 1000px;
   .banner {
+    .banner_a {
+      display: inline-block;
+    }
     img {
       width: 100%;
       height: auto;
@@ -178,6 +184,11 @@ export default {
           font-size: 12px;
         }
       }
+    }
+  }
+  .banner_3 {
+    .banner_3_a {
+      margin: 5vh 0;
     }
   }
 }

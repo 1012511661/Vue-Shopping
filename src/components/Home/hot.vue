@@ -8,8 +8,10 @@
         <!-- 热门商品 -->
         <van-row class="hot_goods">
           <van-col span="12" class="hot_goods_col" v-for="(img,index) in images" :key="index"
+         
           >
-            <img :src="img.url" alt="">
+            <img v-lazy="img.url" >
+            <!-- <img :src="img.url" alt=""> -->
             <p class="tit" :text="img.title">{{img.title}}</p>
           </van-col>
         </van-row>
@@ -54,11 +56,13 @@ export default {
           price: "100.00"
         }
       ],
-      styleColoe: {
-        background: "linear-gradient(to right, red, blue)",
-        "background-clip": "text",
-        color: "transparent"
-      }
+      // ,
+      // styleColoe: {
+      //   background: "linear-gradient(to right, red, blue)",
+      //   "background-clip": "text",
+      //   color: "transparent"
+      // }
+     
     };
   },
   watch: {},
@@ -79,9 +83,8 @@ export default {
     padding: 4vw 0;
     .hot_tit {
       font-size: @fSize*1.8;
-      background: linear-gradient(to right, red, blue);
-      background-clip: text;
-      color: transparent;
+      // background: linear-gradient(to right, red, blue);
+      // background-clip: text;
     }
     .hot_f {
       height: 24px;
